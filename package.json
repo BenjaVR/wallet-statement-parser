@@ -1,0 +1,10 @@
+{
+  "name": "wallet-statement-parser",
+  "version": "0.1.0",
+  "description": "Parses bank export files and make them readable by Wallet (by BudgetMakers).",
+  "license": "MIT",
+  "author": "BVR Code",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
