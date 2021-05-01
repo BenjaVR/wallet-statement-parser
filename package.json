@@ -5,11 +5,12 @@
   "license": "MIT",
   "author": "BVR Code",
   "scripts": {
+    "prepare": "husky install",
     "start": "ts-node src/index.ts",
+    "lint": "eslint src/**/*.ts",
     "build": "tsc --noEmit",
     "test": "jest",
-    "lint": "eslint src/**/*.ts",
-    "prepare": "husky install"
+    "pre-push": "run-p lint build test"
   },
   "dependencies": {
     "neat-csv": "6.0.1"
