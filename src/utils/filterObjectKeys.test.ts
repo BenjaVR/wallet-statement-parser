@@ -14,7 +14,7 @@ describe("filterObjectKeys", () => {
 
     expect(result).toEqual({
       a: 1,
-      c: 3
+      c: 3,
     });
   });
 });

@@ -12,11 +12,11 @@ const keytradeParser: Parser = async (filePath) => {
   ];
 
   const headersMap: { [rawHeader: string]: WalletHeader } = {
-    "Date": WalletHeader.Date,
-    "Account": WalletHeader.Payee,
-    "Description": WalletHeader.Note,
-    "Amount": WalletHeader.Income,
-    "Currency": WalletHeader.Currency,
+    Date: WalletHeader.Date,
+    Account: WalletHeader.Payee,
+    Description: WalletHeader.Note,
+    Amount: WalletHeader.Income,
+    Currency: WalletHeader.Currency
   };
 
   // Read and parse the CSV file.
@@ -30,12 +30,12 @@ const keytradeParser: Parser = async (filePath) => {
         default:
           return value;
       }
-    }
+    },
   });
 
   return {
     headers,
-    records: records.map(record => filterObjectKeys(record, headers))
+    records: records.map((record) => filterObjectKeys(record, headers)),
   };
 };
 

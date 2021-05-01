@@ -1,0 +1,3 @@
+{
+  "*.ts": "npm-s lint build test"
+}
