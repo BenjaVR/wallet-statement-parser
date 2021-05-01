@@ -2,8 +2,8 @@ import fs from "fs";
 import csv from "neat-csv";
 import path from "path";
 
-const inputPath = "input";
-const outputPath = "output";
+const inputPath = path.join(__dirname, "..", "input");
+const outputPath = path.join(__dirname, "..", "output");
 
 type Parser = (content: Buffer, fileName: string) => Promise<void>;
 

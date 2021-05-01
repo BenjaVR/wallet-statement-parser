@@ -14,4 +14,4 @@ The files should start with the parser that should be used. E.g. for the `keytra
 
 ## Supported parsers
 
-- Keytrade
+- `keytrade`
