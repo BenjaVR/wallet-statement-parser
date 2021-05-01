@@ -8,7 +8,7 @@ const outputPath = path.join(__dirname, "..", "output");
 
 fs.readdir(inputPath, {}, (err, files) => {
   if (err) {
-    throw err
+    throw err;
   }
 
   files
