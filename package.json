@@ -8,7 +8,8 @@
     "start": "ts-node src/index.ts",
     "build": "tsc --noEmit",
     "test": "jest",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src/**/*.ts",
+    "prepare": "husky install"
   },
   "dependencies": {
     "neat-csv": "6.0.1"

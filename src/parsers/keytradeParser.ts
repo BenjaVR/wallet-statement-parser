@@ -16,7 +16,7 @@ const keytradeParser: Parser = async (filePath) => {
     Account: WalletHeader.Payee,
     Description: WalletHeader.Note,
     Amount: WalletHeader.Income,
-    Currency: WalletHeader.Currency
+    Currency: WalletHeader.Currency,
   };
 
   // Read and parse the CSV file.
