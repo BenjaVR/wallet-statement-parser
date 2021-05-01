@@ -1,3 +1,5 @@
+![CI status](https://github.com/BenjaVR/wallet-statement-parser/actions/workflows/main.yml/badge.svg)
+
 # Wallet Statement Parser
 
 Parses bank export files and make them readable by Wallet (by BudgetMakers).
