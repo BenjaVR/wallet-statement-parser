@@ -5,25 +5,34 @@ import path from "path";
 const inputPath = "input";
 const outputPath = "output";
 
+type Parser = (content: Buffer, fileName: string) => Promise<void>;
+
+const parserMap: { [parserName: string]: Parser } = {
+  "keytrade": transformKeytrade
+};
+
 fs.readdir(inputPath, {}, ((err, files) => {
   if (err) {
     throw err;
   }
 
-  files.forEach(async (file: any) => {
-    const filePath = path.join(inputPath, file);
-    const getFileContent = () => fs.readFileSync(filePath);
+  files
+    .map((file: any) => (file as string).toLowerCase())
+    .forEach(async fileName => {
+      const filePath = path.join(inputPath, fileName);
+      const getFileContent = () => fs.readFileSync(filePath);
 
-    const fileName = (file as string).toLowerCase();
+      for (const parserName of Object.keys(parserMap)) {
+        if (!fileName.startsWith(parserName)) {
+          continue;
+        }
+        console.log(`Parsing '${fileName}' with the '${parserName}' parser...`);
+        await parserMap[parserName](getFileContent(), fileName);
+        return; // Exit foreach loop -> we have found a matching parser!
+      }
 
-    if (fileName.startsWith("keytrade")) {
-      console.log(`Parsing '${fileName}' with the Keytrade parser...`);
-      await transformKeytrade(getFileContent(), fileName);
-      return;
-    }
-
-    console.log(`No parser found for '${fileName}'!`);
-  });
+      console.log(`No parser found for '${fileName}'!`);
+    });
 }));
 
 async function transformKeytrade(filePath: Buffer, fileName: string) {
