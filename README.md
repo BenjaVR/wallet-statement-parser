@@ -2,6 +2,10 @@
 
 Parses bank export files and make them readable by Wallet (by BudgetMakers).
 
+## Getting started
+
+Run `npm install` to install all the dependencies.
+
 ## How to use
 
 Add files to the [input](./input) folder and run `npm start`. All the files that can be parsed will be transformed and copied to the [output](./output) folder.
