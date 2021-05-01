@@ -30,7 +30,7 @@ fs.readdir(inputPath, {}, ((err, files) => {
         records.forEach(record => {
           const values = headers.map(header => {
             const value = record[header];
-            if (value === undefined) {
+            if (value === undefined || value === "") {
               return "";
             }
             return `"${value}"`
