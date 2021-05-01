@@ -12,6 +12,7 @@ fs.readdir(inputPath, {}, ((err, files) => {
 
   files
     .map((file: any) => (file as string).toLowerCase())
+    .filter(fileName => !fileName.startsWith(".")) // Skip dot-files.
     .forEach(async fileName => {
       const filePath = path.join(inputPath, fileName);
       const fileContent = fs.readFileSync(filePath);
